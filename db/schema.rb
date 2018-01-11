@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110093831) do
+ActiveRecord::Schema.define(version: 20180111021506) do
+
+  create_table "grant_applications", force: :cascade do |t|
+    t.string "applicant_name"
+    t.string "application_type"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false

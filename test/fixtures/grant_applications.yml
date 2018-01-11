@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant_name: MyString
+  application_type: MyString
+  status: MyString
+
+two:
+  applicant_name: MyString
+  application_type: MyString
+  status: MyString
