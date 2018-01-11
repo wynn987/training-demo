@@ -1,11 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  applicant_name: MyString
-  application_type: MyString
-  status: MyString
+pending_grant:
+  user: one
+  applicant_name: 'wynn'
+  application_type: 'SME'
+  status: 'PENDING'
 
-two:
-  applicant_name: MyString
-  application_type: MyString
-  status: MyString
+flagged_grant:
+  user: one
+  applicant_name: 'wynn'
+  application_type: 'MNC'
+  status: 'FLAGGED'
+
+approved_grant:
+  user: one
+  applicant_name: 'wynn'
+  application_type: 'MNC'
+  status: 'APPROVED'
+
+rejected_grant:
+  user: one
+  applicant_name: 'wynn'
+  application_type: 'MNC'
+  status: 'REJECTED'
+
+another_user_grant:
+  user: two
+  applicant_name: 'chen'
+  application_type: 'MNC'
+  status: 'APPROVED'
