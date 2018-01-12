@@ -1,0 +1,20 @@
+<% timestamp = DateTime.parse(2.weeks.ago.to_s).to_time.strftime("%F %T") %>
+one:
+  uid:                'wynn987@gmail.com'
+  email:              'wynn987@gmail.com'
+  nickname:           'stimpy'
+  provider:           'email'
+  confirmed_at:       '<%= timestamp %>'
+  created_at:         '<%= timestamp %>'
+  updated_at:         '<%= timestamp %>'
+  encrypted_password: <%= User.new.send(:password_digest, 'secret123') %>
+
+two:
+  uid:                'wynn465@gmail.com'
+  email:              'wynn465@gmail.com'
+  nickname:           'stimpy2'
+  provider:           'email'
+  confirmed_at:       '<%= timestamp %>'
+  created_at:         '<%= timestamp %>'
+  updated_at:         '<%= timestamp %>'
+  encrypted_password: <%= User.new.send(:password_digest, 'secret123') %>
