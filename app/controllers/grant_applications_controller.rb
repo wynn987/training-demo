@@ -21,6 +21,38 @@ class GrantApplicationsController < ApplicationController
     end
   end
 
+  def show
+    @grant_application = GrantApplication.find_by(id: params[:id])
+
+    if @grant_application && @grant_application.user_id == current_user.id
+      render json: @grant_application, status: :success
+    else
+      render_bad_request('you do not have permission to access this resource')
+    end
+  end
+
+  def update
+    @grant_application = GrantApplication.find_by(id: params[:id])
+    if @grant_application.user_id == current_user.id
+      if @grant_application.update(update_params)
+        render json: @grant_application
+      else
+        render json: @grant_application.errors, status: :unprocessable_entity
+      end
+    else
+      render_bad_request('you do not have permission to access this resource')
+    end
+  end
+
+  def destroy
+    @grant_application = GrantApplication.find_by(id: params[:id])
+    if @grant_application && @grant_application.user_id == current_user.id
+      @grant_application.destroy
+    else
+      render_bad_request('you do not have permission to access this resource')
+    end
+  end
+
   private
 
   def determine_grant_application_status(grant_application)
@@ -39,6 +71,12 @@ class GrantApplicationsController < ApplicationController
   end
 
   def create_params
-    params.require(:grant_application).permit(:applicant_name, :application_type)
+    params.require(:grant_application).permit(:applicant_name,
+                                              :application_type)
+  end
+
+  def update_params
+    params.require(:grant_application).permit(:applicant_name,
+                                              :application_type)
   end
 end
