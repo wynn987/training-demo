@@ -1,10 +1,10 @@
 # This controller handles calls related to GrantApplication and uses Device to
 # authenticate requests
 class GrantApplicationsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
-    @grant_applications = GrantApplication.all
+    @grant_applications = GrantApplication.where(user_id: current_user.id)
     render json: @grant_applications
   end
 
