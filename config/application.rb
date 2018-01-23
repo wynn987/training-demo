@@ -30,7 +30,7 @@ module TrainingDemo
         resource '*',
                  headers: :any,
                  expose: %w[access-token expiry token-type uid client],
-                 methods: %i[get post options delete put]
+                 methods: %i[get post options delete put patch]
       end
     end
     # Only loads a smaller set of middleware suitable for API only apps.

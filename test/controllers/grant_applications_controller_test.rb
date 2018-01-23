@@ -106,8 +106,9 @@ class GrantApplicationsControllerTest < ActionDispatch::IntegrationTest
     @grant_application = users(:one).grant_application.first
     updated = {
       applicant_name: 'New name',
-      application_type: 'New type'
+      application_type: 'MNC'
     }
+    @auth_headers['Content-Type'] = 'application/json'
     patch grant_application_url(@grant_application),
           params: { grant_application: updated },
           headers: @auth_headers,
@@ -131,8 +132,8 @@ class GrantApplicationsControllerTest < ActionDispatch::IntegrationTest
       application_type: 'New type'
     }
     patch grant_application_url(@grant_application),
-          params: { grant_application: updated },
           headers: @auth_headers,
+          params: { grant_application: updated },
           as: :json
 
     @grant_application.reload
