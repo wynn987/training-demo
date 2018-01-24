@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def assert_not_signed_in_error(body)
-    error_msg = 'You need to sign in or sign up before continuing.'
+    error_msg = 'Authorized users only.'
     assert_equal error_msg, JSON.parse(body)['errors'][0]
   end
 

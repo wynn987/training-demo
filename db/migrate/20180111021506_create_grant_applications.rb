@@ -1,4 +1,4 @@
-class CreateGrantApplications < ActiveRecord::Migration[5.1]
+class CreateGrantApplications < ActiveRecord::Migration[5.0]
   def change
     create_table :grant_applications do |t|
       t.string :applicant_name
